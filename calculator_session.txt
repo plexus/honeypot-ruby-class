@@ -1,0 +1,39 @@
+arne@bmo ~/Honeypot % irb -I.
+irb(main):001:0>
+irb(main):001:0> require 'calculator'
+=> true
+irb(main):002:0> Calculator
+=> Calculator
+irb(main):003:0> 12.class
+=> Fixnum
+irb(main):004:0> 'foo'.class
+=> String
+irb(main):005:0> Calculator.class
+=> Class
+irb(main):006:0> Calculator.new
+=> #<Calculator:0x00561c19a27890>
+irb(main):007:0> calc = Calculator.new
+=> #<Calculator:0x00561c19a25a68>
+irb(main):008:0> calc.class
+=> Calculator
+irb(main):009:0> 'foo'.upcase
+=> "FOO"
+irb(main):010:0> calc.add(2, 5)
+=> 7
+irb(main):011:0> calc.methods
+=> [:add, :instance_of?, :public_send, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :private_methods, :kind_of?, :instance_variables, :tap, :method, :public_method, :singleton_method, :is_a?, :extend, :define_singleton_method, :to_enum, :enum_for, :<=>, :===, :=~, :!~, :eql?, :respond_to?, :freeze, :inspect, :display, :object_id, :send, :to_s, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :trust, :untrusted?, :methods, :protected_methods, :frozen?, :public_methods, :singleton_methods, :!, :==, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
+irb(main):012:0> calc.kind_of?(String)
+=> false
+irb(main):013:0> calc.kind_of?(Caculator)
+NameError: uninitialized constant Caculator
+Did you mean?  Calculator
+        from (irb):13
+        from /home/arne/.rubies/ruby-2.3.0/bin/irb:11:in `<main>'
+irb(main):014:0> calc.kind_of?(Calculator)
+=> true
+irb(main):015:0> calc.respond_to?(:add)
+=> true
+irb(main):016:0> 'foo'.respond_to?(:add)
+=> false
+irb(main):017:0>
+irb(main):017:0>
