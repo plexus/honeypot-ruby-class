@@ -47,11 +47,11 @@ class Calculator
   end
 end
 
-class Email
+class Email1
   def initialize(subject, headers)
     @subject = subject
-    @date    = ...
-    @from    = ...
+    @date    = headers[:date]
+    @from    = headers[:from]
   end
 
   def subject
@@ -67,9 +67,10 @@ class Email
   end
 end
 
-email = Email.new("Keep on coding! :)", { :date => "2014-12-01", :from => "Ferdous" })
+email1 = Email1.new("Keep on coding! :)", { :date => "2014-12-01", :from => "Ferdous" })
+email2 = Email2.new("Keep on coding! :)", { :date => "2014-12-01", :from => "Ferdous" })
 
-class Email
+class Email2
   def initialize(subject, headers)
     @subject = subject
     @headers = headers
@@ -80,16 +81,80 @@ class Email
   end
 
   def date
-    # ...
+    @headers[:date]
   end
 
   def from
-    # ...
+    @headers[:from]
   end
 end
-
 
 # - creating a class
 # - instantiating a class
 # - instance variables
 # - initializer
+
+
+
+# BLOCKS
+
+5.times do |i|
+  puts "Oh yeah #{i}"
+end
+
+def some_method(i)
+  ##
+end
+
+fruits = ["apple", "banana", "pineapple", "pear"]
+#=> ["apple", "banana", "pear"]
+
+fruits.each do |fruit|
+ puts "Do you want a #{fruit}"
+end
+
+# Fixnum#times
+# Array#each
+# Array#map
+# Array#select
+
+fruits.map do |fruit|
+  fruit.length
+end
+
+fruits.select do |f|
+  f.include?("ap")
+end
+
+fruits.select {|f| f.include?("ap") }
+
+
+chess_board = [
+  [:rook, :bishop, nil, :king, :queen, :knight, :bishop, :rook],
+  [:pawn, :pawn, :pawn, :pawn, :pawn, :pawn, :pawn, :pawn ],
+  [nil, :knight, nil, nil, nil, nil, nil, nil],
+  [nil, nil, nil, nil, nil, nil, nil, nil],
+  [nil, nil, nil, :PAWN, nil, nil, nil, nil],
+  [nil, nil, nil, nil, nil, nil, nil, nil],
+  [:PAWN, :PAWN, :PAWN, nil, :PAWN, :PAWN, :PAWN, :PAWN ],
+  [:ROOK, :BISHOP, :KNIGHT, :KING, :QUEEN, :KNIGHT, :BISHOP, :ROOK]
+]
+# Array#compact
+[7, 8, 1, 0, 4, 0, 7, 8]
+
+result = chess_board.map do |row|
+  row.compact.length
+end
+
+result = chess_board.map do |row|
+  row.reject {|piece| piece.nil? }.length
+end
+
+result = chess_board.map do |row|
+  row.select {|piece| !(piece.nil?) }.length
+end
+
+  if == != < > && ||
+  end
+
+  p result
