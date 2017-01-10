@@ -2,7 +2,6 @@ class Email
   def initialize(subject, headers)
     @subject = subject
     @headers = headers
-    @read = false
   end
 
   def subject
@@ -16,17 +15,22 @@ class Email
   def from
     @headers[:from]
   end
-
-  def read?
-    @read
-  end
-
-  def mark_as_read!
-    @read = true
-  end
 end
 
-email = Email.new("Homework this week", { :date => "2014-12-01", :from => "Ferdous" })
-email.read? #=> false
-email.mark_as_read! #=> true
-email.read? #=> true
+#email = Email.new("Homework this week", { :date => "2014-12-01", :from => "Ferdous" })
+
+#
+# email = Email.new(...)
+# p email.to_s
+# "From: Ferdous\nSubject: Homework for this week\nDate: ..."
+#
+# puts email.to_s
+# From: Ferdous
+# Subject: Homework for this week
+# Date: ...
+#
+#
+#email = Email.new("Homework this week", { :date => "2014-12-01", :from => "Ferdous" })
+# email.read? #=> false
+# email.mark_as_read! #=> true
+# email.read? #=> true
