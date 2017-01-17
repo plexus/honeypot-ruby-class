@@ -1,7 +1,12 @@
 require 'sinatra'
+require 'sinatra/reloader'
 
 require_relative 'lib/email'
 require_relative 'lib/mailbox'
+
+configure :production do
+  enable :reloader
+end
 
 def load_emails
   [
@@ -12,7 +17,7 @@ def load_emails
 end
 
 get '/' do
-  @mailbox = Mailbox.new("INBOX", load_emails)
+  @mailbox = Mailbox.new("OUTBOX", load_emails)
 
   erb :mailbox
 end
