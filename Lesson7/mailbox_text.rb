@@ -2,15 +2,11 @@ require_relative 'email'
 require_relative 'mailbox'
 
 # +------------+---------+------------------------+
-
 # | Date       | From    | Subject                |
-
 # +------------+---------+------------------------+
-
 # | 2014-12-01 | Ferdous | Homework this week     |
 # | 2014-12-01 | Dajana  | Keep on coding! :)     |
 # | 2014-12-02 | Ariane  | Re: Homework this week |
-
 # +------------+---------+------------------------+
 
 class MailboxTextFormatter

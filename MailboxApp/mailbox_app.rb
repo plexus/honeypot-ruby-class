@@ -1,7 +1,7 @@
 require 'sinatra'
 
-require_relative 'email'
-require_relative 'mailbox'
+require_relative 'lib/email'
+require_relative 'lib/mailbox'
 
 def load_emails
   [

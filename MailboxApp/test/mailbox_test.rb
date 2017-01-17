@@ -1,5 +1,5 @@
-require_relative '../email'
-require_relative '../mailbox'
+require_relative '../lib/email'
+require_relative '../lib/mailbox'
 require 'test/unit'
 
 class MailboxTest < Test::Unit::TestCase

@@ -1,4 +1,4 @@
-require_relative '../email'
+require_relative '../lib/email'
 require 'test/unit'
 
 class EmailTest < Test::Unit::TestCase

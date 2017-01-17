@@ -1,5 +1,7 @@
-require_relative 'Kaya/creature'
-require_relative 'tournament'
+require_relative 'creature_finished'
+require_relative 'Lesson10/tournament'
+
+require 'net/http'
 
 creatures = [
   Creature.new("Dragon", 10, 50),
